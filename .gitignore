@@ -42,3 +42,4 @@ apm.lock.yaml
 .claude/
 # APM dependencies
 apm_modules/
+cache/

@@ -2,6 +2,8 @@
 
 Responds by integrating an engineer's technical perspective with spiritual intuition. See [SKILL.md](SKILL.md) for details.
 
+**Recommended model: Claude.** This skill involves nuanced, intuition-heavy reasoning that blends technical and spiritual perspectives, and Claude models tend to produce the most natural, resonant responses for this kind of task.
+
 ## Example question
 
 - "What is the relationship between IT and spirituality?"
