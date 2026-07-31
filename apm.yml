@@ -1,0 +1,20 @@
+name: apicenter-catalog
+version: 1.0.0
+
+targets:
+  - copilot
+
+dependencies:
+  apm:
+    - <owner>/<repo>/catalog/skills/azure-msdocs
+    - <owner>/<repo>/catalog/skills/azure-terraform
+    - <owner>/<repo>/catalog/skills/spiritual-engineer
+  mcp:
+    - name: <mcp-server-name>
+      registry: https://<api-center-url>/workspaces/default
+    - name: terraform-mcp-7yahu6
+      registry: false
+      transport: stdio
+      command: docker
+      args:
+        ["run", "-i", "--rm", "docker.io/hashicorp/terraform-mcp-server:1.1.0"]
