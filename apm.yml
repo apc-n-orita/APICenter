@@ -12,7 +12,7 @@ dependencies:
   mcp:
     - name: <mcp-server-name>
       registry: https://<api-center-url>/workspaces/default
-    - name: terraform
+    - name: terraform-mcp-7yahu6
       registry: false
       transport: stdio
       command: docker
