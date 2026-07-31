@@ -35,3 +35,10 @@ override.tf.json
 .terraformrc
 terraform.rc
 .azure
+.agents/
+mcp.json
+.mcp.json
+apm.lock.yaml
+.claude/
+# APM dependencies
+apm_modules/
