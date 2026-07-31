@@ -19,11 +19,15 @@
       "runtimeArguments": [
         {
           "type": "named",
-          "name": "-i"
+          "name": "-i",
+          "isRequired": true,
+          "format": "string"
         },
         {
           "type": "named",
-          "name": "--rm"
+          "name": "--rm",
+          "isRequired": true,
+          "format": "string"
         }
       ],
       "environmentVariables": [
