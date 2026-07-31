@@ -29,19 +29,6 @@
           "isRequired": true,
           "format": "string"
         }
-      ],
-      "environmentVariables": [
-        {
-          "name": "TFE_TOKEN",
-          "description": "HCP Terraform / Terraform Enterprise API token",
-          "isRequired": false,
-          "isSecret": true
-        },
-        {
-          "name": "TFE_ADDRESS",
-          "description": "HCP Terraform / Terraform Enterprise address, including protocol (e.g. https://app.terraform.io)",
-          "isRequired": false
-        }
       ]
     }
   ]
