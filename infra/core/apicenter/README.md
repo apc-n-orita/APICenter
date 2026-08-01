@@ -31,7 +31,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_data_api_hostname"></a> [data\_api\_hostname](#output\_data\_api\_hostname) | The hostname of the API Center data-plane API |
 | <a name="output_id"></a> [id](#output\_id) | The resource ID of the API Center service |
 | <a name="output_name"></a> [name](#output\_name) | The name of the API Center service |
 | <a name="output_portal_hostname"></a> [portal\_hostname](#output\_portal\_hostname) | The hostname of the API Center portal |

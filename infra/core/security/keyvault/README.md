@@ -27,12 +27,12 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_location"></a> [location](#input\_location) | The supported Azure location where the resource deployed | `string` | n/a | yes |
+| <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | Resource ID of the Log Analytics workspace to send Key Vault diagnostic logs (all log categories) and metrics to. Set to an empty string to skip diagnostic settings. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the key vault (typically CAF-named by the caller, e.g. via azurecaf\_name). | `string` | n/a | yes |
 | <a name="input_principal_id"></a> [principal\_id](#input\_principal\_id) | The Id of the principal to grant the 'Key Vault Secrets Officer' RBAC role (read/write secrets). | `string` | n/a | yes |
 | <a name="input_rg_name"></a> [rg\_name](#input\_rg\_name) | The name of the resource group to deploy resources into | `string` | n/a | yes |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | A list of secrets to be added to the keyvault | <pre>list(object({<br/>    name  = string<br/>    value = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A list of tags used for deployed services. | `map(string)` | n/a | yes |
-| <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | Resource ID of the Log Analytics workspace to send Key Vault diagnostic logs (all log categories) and metrics to. Set to an empty string to skip diagnostic settings. | `string` | `""` | no |
 | <a name="input_secrets_user_object_ids"></a> [secrets\_user\_object\_ids](#input\_secrets\_user\_object\_ids) | A list of object ids to grant the 'Key Vault Secrets User' RBAC role (read-only secrets access). | `list(string)` | `[]` | no |
 
 ## Outputs
