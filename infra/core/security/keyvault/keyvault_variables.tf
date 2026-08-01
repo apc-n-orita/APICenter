@@ -13,22 +13,25 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "resource_token" {
-  description = "A suffix string to centrally mitigate resource name collisions."
+variable "name" {
+  description = "The name of the key vault (typically CAF-named by the caller, e.g. via azurecaf_name)."
   type        = string
 }
 
 variable "principal_id" {
-  description = "The Id of the service principal to add to deployed keyvault access policies"
-  sensitive   = true
+  description = "The Id of the principal to grant the 'Key Vault Secrets Officer' RBAC role (read/write secrets)."
   type        = string
 }
 
-variable "access_policy_object_ids" {
-  description = "A list of object ids to be be added to the keyvault access policies"
+variable "secrets_user_object_ids" {
+  description = "A list of object ids to grant the 'Key Vault Secrets User' RBAC role (read-only secrets access)."
   type        = list(string)
-  sensitive   = true
   default     = []
+}
+
+variable "log_analytics_workspace_id" {
+  description = "Resource ID of the Log Analytics workspace to send Key Vault diagnostic logs (all log categories) and metrics to. Set to an empty string to skip diagnostic settings."
+  type        = string
 }
 
 variable "secrets" {

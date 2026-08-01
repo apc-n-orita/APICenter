@@ -3,7 +3,7 @@ terraform {
   required_version = ">= 1.1.7, < 2.0.0"
   required_providers {
     azurerm = {
-      version = "~>4.42.0"
+      version = "~>5.0"
       source  = "hashicorp/azurerm"
     }
     azurecaf = {
@@ -16,7 +16,11 @@ terraform {
     }
     azapi = {
       source  = "Azure/azapi"
-      version = "~>2.0.0"
+      version = "~>2.11"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~>0.14"
     }
 
   }
