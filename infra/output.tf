@@ -14,3 +14,20 @@ output "AZURE_LOCATION" {
 output "AZURE_TENANT_ID" {
   value = data.azurerm_client_config.current.tenant_id
 }
+
+output "AZURE_KEY_VAULT_NAME" {
+  value = module.keyvault.name
+}
+
+output "AZURE_KEY_VAULT_ENDPOINT" {
+  value     = module.keyvault.vault_uri
+  sensitive = true
+}
+
+output "APICENTER_NAME" {
+  value = module.apicenter.name
+}
+
+output "APICENTER_PORTAL_HOSTNAME" {
+  value = module.apicenter.portal_hostname
+}
