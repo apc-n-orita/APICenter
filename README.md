@@ -44,10 +44,10 @@ az apim list --resource-group <resource group apim-mcp-oauth was deployed into> 
 
 Fill in the `<...>` placeholders in `infra/main.tfvars.json`.
 
-| Item | Value |
-| --- | --- |
-| `resource_group_name` | Name of the existing resource group to deploy into |
-| `apicenter_apim_resource_ids` | The API Management resource ID you noted in step 2 |
+| Item                           | Value                                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `resource_group_name`          | Name of the existing resource group to deploy into                                                                                    |
+| `apicenter_apim_resource_ids`  | The API Management resource ID you noted in step 2                                                                                    |
 | `log_analytics_workspace_name` | Name of the existing Log Analytics workspace to send diagnostic logs to (must be in the same resource group as `resource_group_name`) |
 
 Leave `apicenter_git_repository_urls` **empty for now**. On the API Center Free plan, only one "platform integration" (such as Git repository integration or API Management integration) can be enabled at a time, so we'll enable API Management integration only for now (Git repository integration is switched on later, in [handson.md](./handson.md)).
@@ -89,6 +89,6 @@ The three repositories in this hands-on trace a shape similar to the direction t
 
 [apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) raised a ward of OAuth, token validation, and role-based authorization, giving each MCP server a clear outline of its own. [a2a-agent-foundry](https://github.com/apc-n-orita/a2a-agent-foundry) built on that foundation and let Agents begin connecting to each other as Agent-to-Agent. And finally, in this repository, APIs and Agents living inside API Management, and Skills living inside a Git repository — assets born in different places, in different contexts — were all gathered into a single API Center catalog, without breaking their boundaries and without forcing them into an undifferentiated mix. Just as the tarot's THE WORLD is a picture of "every element remaining fully itself, all held within one circle," by the time you've passed through these three repositories, a single world — protected, connected, and integrated — should already exist in your hands.
 
-This repository's `catalog/skills` folder includes a skill called [`spiritual-engineer`](./catalog/skills/spiritual-engineer/README.md), which responds by integrating an engineer's perspective with a spiritual one, without separating the two. Give it a try, right in the flow of the `apm install` you just ran in this hands-on. Tarot, numerology, the relationship between IT and spirituality itself, or a design decision you're currently wrestling with — any of these work. Technical accuracy stays intact, while it should also give you a chance to look at the same question from one level deeper.
+This repository's `catalog/skills` folder includes a skill called [`spiritual-engineer`](./catalog/skills/spiritual-engineer/README.md), which responds by integrating an engineer's perspective with a spiritual one, without separating the two. Give it a try, right in the flow of the `apm install` you just ran in this hands-on. the relationship between IT and spirituality itself, or a design decision you're currently wrestling with — any of these work. Technical accuracy stays intact, while it should also give you a chance to look at the same question from one level deeper.
 
 May the catalog in your hands turn out to be a good place of integration, for both code and soul.
