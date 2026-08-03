@@ -30,19 +30,26 @@ Git repository integration needs a GitHub Personal Access Token (fine-grained) t
    - **Contents**: **Read-only** (nothing else is needed)
 5. Generate the token and note down the value (it won't be shown again once you close this screen)
 
-### 2-2. Update `infra/main.tfvars.json`
+### 2-2. Set the PAT as an azd environment variable
+
+`infra/main.tfvars.json` has `"github_pat": "${GITHUB_PAT}"` — it's already wired to pull from the azd environment rather than being a value you edit directly in the JSON. Set the PAT you issued in 2-1 with `azd env set`:
+
+```bash
+azd env set GITHUB_PAT <the fine-grained PAT you issued in 2-1>
+```
+
+### 2-3. Update `infra/main.tfvars.json`
 
 | Item                            | Value                                                                         |
 | ------------------------------- | ----------------------------------------------------------------------------- |
 | `apicenter_git_repository_urls` | `https://github.com/<your account>/<your forked repo name>/tree/main/catalog` |
-| `github_pat`                    | The fine-grained PAT you issued in 2-1                                        |
 | `apicenter_apim_resource_ids`   | `""` (set back to empty)                                                      |
 
 ```bash
 azd up
 ```
 
-### 2-3. Check in the portal
+### 2-4. Check in the portal
 
 Confirm in the API Center portal's **Assets** that `SKILL.md` and other files under `catalog/skills` in your forked repository have been pulled in as Skills / MCP servers / Agents.
 
