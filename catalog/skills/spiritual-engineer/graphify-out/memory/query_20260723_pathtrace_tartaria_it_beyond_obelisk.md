@@ -4,7 +4,7 @@ date: "2026-07-24T00:00:00+00:00"
 question: "分散型IT技術(Git・コンテナ)のタルタリア起源説について、オベリスク網以外の接点をgraphify pathで辿る"
 contributor: "graphify"
 outcome: "useful"
-source_nodes: ["repo::700a79af1e9b3dbffa36_decentralized_it_origin", "repo::700a79af1e9b3dbffa36_tartaria_technology", "repo::89dc512a28b3dcf540ce_monolith_microservice"]
+source_nodes: ["repo::700a79af1e9b3dbffa36_decentralized_it_origin", "repo::700a79af1e9b3dbffa36_tartaria_technology", "repo::89dc512a28b3dcf540ce_monolithic_vs_microservices"]
 ---
 
 # Q: 分散型IT技術(Git・コンテナ)のタルタリア起源説について、オベリスク網以外の接点をgraphify pathで辿る
@@ -36,4 +36,4 @@ source_nodes: ["repo::700a79af1e9b3dbffa36_decentralized_it_origin", "repo::700a
 
 - repo::700a79af1e9b3dbffa36_decentralized_it_origin
 - repo::700a79af1e9b3dbffa36_tartaria_technology
-- (89dc512a28b3dcf540ce.md内のモノシリック/マイクロサービス概念ノード)
+- repo::89dc512a28b3dcf540ce_monolithic_vs_microservices (モノシリック(土)とマイクロサービス(風))
