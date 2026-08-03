@@ -1,6 +1,6 @@
 # API Center Hands-On
 
-A hands-on lab for deploying Azure API Center with Terraform (azd) and experiencing **API Management integration** and **Git repository integration** firsthand.
+A hands-on lab for deploying Azure API Center with Terraform (azd), covering **API Management integration** and **Git repository integration**.
 
 ## Hands-On Overview
 
@@ -28,13 +28,23 @@ Have the following installed locally:
 
 **1. Fork this repository privately**
 
-Fork it under your own account, selecting **Private**. You'll use this fork later in the Git repository integration hands-on.
+You'll use this fork in the Git repository integration hands-on. GitHub's fork screen has no "Private" option for a public repo, so fork first, then switch visibility.
+
+```bash
+# 1. Fork (stays public at this point)
+gh repo fork apc-n-orita/APICenter --clone=false
+
+# 2. Switch the fork to private
+gh repo edit <your account>/APICenter --visibility private
+```
+
+Alternatively, do this from the web UI: click **Fork** on this repository, then on your fork go to **Settings > General > Danger Zone > Change repository visibility** and set it to **Private**.
 
 **2. Deploy [apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) → [a2a-agent-foundry](https://github.com/apc-n-orita/a2a-agent-foundry) in that order**
 
-To experience integrating with an existing API Management instance, first prepare an environment where multiple MCP servers and Agents are already deployed on API Management. These two repositories are designed to share the same API Management instance, so you **must deploy them in this order**.
+To integrate with an existing API Management instance, first deploy an environment with multiple MCP servers and Agents already on it. These two repos share one API Management instance, so **deploy in this order**.
 
-Once deployed, note down this API Management instance's resource ID (you'll use it in the next step). Scope the query to the resource group `apim-mcp-oauth` was deployed into, in case there are other API Management instances in the subscription.
+Note this API Management instance's resource ID for the next step. Scope the query to `apim-mcp-oauth`'s resource group, in case the subscription has other API Management instances.
 
 ```bash
 az apim list --resource-group <resource group apim-mcp-oauth was deployed into> --query "[].id" -o tsv
@@ -50,7 +60,7 @@ Fill in the `<...>` placeholders in `infra/main.tfvars.json`.
 | `apicenter_apim_resource_ids`  | The API Management resource ID you noted in step 2                                                                                    |
 | `log_analytics_workspace_name` | Name of the existing Log Analytics workspace to send diagnostic logs to (must be in the same resource group as `resource_group_name`) |
 
-Leave `apicenter_git_repository_urls` **empty for now**. On the API Center Free plan, only one "platform integration" (such as Git repository integration or API Management integration) can be enabled at a time, so we'll enable API Management integration only for now (Git repository integration is switched on later, in [handson.md](./handson.md)).
+Leave `apicenter_git_repository_urls` **empty for now** — the Free plan only allows one platform integration at a time, so we'll enable API Management integration first (Git repository integration comes later, in [handson.md](./handson.md)).
 
 **4. Deploy**
 
@@ -60,7 +70,7 @@ azd up
 
 **5. Configure the API Center portal**
 
-Once deployed, open the API Center instance created in the Azure portal and configure the following (these are preview features that can't be managed via Terraform, so manual setup is required).
+Open the created API Center instance in the Azure portal and configure the following (preview features not yet supported by Terraform, so manual setup is required).
 
 - **Enable anonymous access**
   1. From the API Center side menu, open **Consumption > Portal settings**
@@ -81,7 +91,7 @@ When you're done with the hands-on, remove the resources for this repository:
 azd down
 ```
 
-If you also want to remove the resources deployed for `apim-mcp-oauth` and `a2a-agent-foundry`, run `azd down` in each of those repositories as well. Since `a2a-agent-foundry` reuses `apim-mcp-oauth`'s API Management instance, tear them down in the **reverse** of the deployment order — `a2a-agent-foundry` first, then `apim-mcp-oauth`.
+To also remove `apim-mcp-oauth`/`a2a-agent-foundry`, run `azd down` in each — **reverse** order: `a2a-agent-foundry` first, then `apim-mcp-oauth`.
 
 ## Closing Thoughts
 
