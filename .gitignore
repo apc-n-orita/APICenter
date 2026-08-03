@@ -43,4 +43,18 @@ apm.lock.yaml
 apm_modules/
 cache/
 *azurite*
-
+.graphify_analysis*
+.graphify_labels*
+# マシン固有の Python 絶対パスが入るため commit 不可(スキルが自動再生成する)
+.graphify_python
+# graphify の一時ファイル(ビルド中のみ存在。Step 9 で削除される)
+.graphify_detect.json
+.graphify_extract.json
+.graphify_ast.json
+.graphify_semantic*.json
+.graphify_cached.json
+.graphify_uncached.txt
+.graphify_chunk_*.json
+.graphify_incremental.json
+.graphify_old.json
+.vocab.txt
