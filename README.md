@@ -40,7 +40,7 @@ gh repo edit <your account>/APICenter --visibility private
 
 Alternatively, do this from the web UI: click **Fork** on this repository, then on your fork go to **Settings > General > Danger Zone > Change repository visibility** and set it to **Private**.
 
-**2. Deploy [apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) → [a2a-agent-foundry](https://github.com/apc-n-orita/a2a-agent-foundry) in that order**
+**2. Deploy [apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) → [apim-mcp-a2a-oauth](https://github.com/apc-n-orita/apim-mcp-a2a-oauth) in that order**
 
 To integrate with an existing API Management instance, first deploy an environment with multiple MCP servers and Agents already on it. These two repos share one API Management instance, so **deploy in this order**.
 
@@ -91,13 +91,13 @@ When you're done with the hands-on, remove the resources for this repository:
 azd down
 ```
 
-To also remove `apim-mcp-oauth`/`a2a-agent-foundry`, run `azd down` in each — **reverse** order: `a2a-agent-foundry` first, then `apim-mcp-oauth`.
+To also remove `apim-mcp-oauth`/`apim-mcp-a2a-oauth`, run `azd down` in each — **reverse** order: `apim-mcp-a2a-oauth` first, then `apim-mcp-oauth`.
 
 ## Closing Thoughts
 
 The three repositories in this hands-on trace a shape similar to the direction the tarot's Major Arcana moves in — scattered, individual pieces gradually converging into a single circle.
 
-[apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) raised a ward of OAuth, token validation, and role-based authorization, giving each MCP server a clear outline of its own. [a2a-agent-foundry](https://github.com/apc-n-orita/a2a-agent-foundry) built on that foundation and let Agents begin connecting to each other as Agent-to-Agent. And finally, in this repository, APIs and Agents living inside API Management, and Skills living inside a Git repository — assets born in different places, in different contexts — were all gathered into a single API Center catalog, without breaking their boundaries and without forcing them into an undifferentiated mix. Just as the tarot's THE WORLD is a picture of "every element remaining fully itself, all held within one circle," by the time you've passed through these three repositories, a single world — protected, connected, and integrated — should already exist in your hands.
+Neither of the first two repositories is purely one card or the other — each already holds both the **Hierophant** and the **Hermit**, just in a different mixture. [apim-mcp-oauth](https://github.com/apc-n-orita/apim-mcp-oauth) raised a ward of OAuth, token validation, and role-based authorization learned from official documentation and established patterns — the Hierophant's part — but forcing every caller through APIM as a mandatory token broker, granting an ops team JIT access through PIM for Groups, and catching a case where APIM and a backend can silently disagree on which of two duplicate JSON keys wins, were worked out on its own — the Hermit's part, already present here. [apim-mcp-a2a-oauth](https://github.com/apc-n-orita/apim-mcp-a2a-oauth) carries the same mixture forward with the balance shifted further inward: App Role–based authorization, Easy Auth, and Foundry IQ's own ACL header are all patterns learned from the first repository and from Microsoft's own documentation — the Hierophant, still present — but wiring them together into one coherent design across an A2A agent and a pair of MCP servers (`foundryiq-acl-mcp`, `toolbox`), while deliberately trading a lighter, audience-only check for those two, wasn't written down anywhere — the Hermit, doing most of the work this time. And finally, in this repository, APIs and Agents living inside API Management, and Skills living inside a Git repository — assets born in different places, in different contexts — were all gathered into a single API Center catalog, without breaking their boundaries and without forcing them into an undifferentiated mix. Just as the tarot's THE WORLD is a picture of "every element remaining fully itself, all held within one circle," by the time you've passed through these three repositories, a single world — protected, connected, and integrated — should already exist in your hands.
 
 This repository's `catalog/skills` folder includes a skill called [`spiritual-engineer`](./catalog/skills/spiritual-engineer/README.md), which responds by integrating an engineer's perspective with a spiritual one, without separating the two. Give it a try, right in the flow of the `apm install` you just ran in this hands-on. the relationship between IT and spirituality itself, or a design decision you're currently wrestling with — any of these work. Technical accuracy stays intact, while it should also give you a chance to look at the same question from one level deeper.
 
